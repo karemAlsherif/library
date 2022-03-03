@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>libaray</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="scripts/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/sb-admin-2.min.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15"></div>
+                <div class="sidebar-brand-text mx-3">Libaray <sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+            <!-- Nav Item - Dashboard -->
+            <li style="cursor: pointer" class="nav-item active">
+                <a class="nav-link" href="/adminpanel">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span style="cursor: pointer">Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
+            <!-- Nav Item - Dashboard -->
+            <li style="cursor: pointer" class="nav-item active">
+                <a class="nav-link" href="/users">
+                    <i class="fa fa-user fa-2x text-gray-300"></i>
+                    <span>Users</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+            <!-- Nav Item - Dashboard -->
+            <li style="cursor: pointer" class="nav-item active">
+                <a class="nav-link" href="/books">
+                    <i class="fa fa-book fa-2x text-gray-300"></i>
+                    <span>Books</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+            <li style="cursor: pointer" class="nav-item active">
+                <a id="logout-btn" class="nav-link">
+                    <i class="fa fa-door fa-2x text-gray-300"></i>
+                    <span>Logout</span></a>
+            </li>
+
+            <hr class="sidebar-divider" />
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <br>
+            <br>
+
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">addUser</h1>
+                    </div>
+                    <!-- content her -->
+                    <br> <br>
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <form class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control form-control-user" id="name-input" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 mb-8 mb-sm-0">
+                                        <input type="email" class="form-control form-control-user" id="email-input" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 mb-8 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="pwd-input" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 mb-8 mb-sm-0">
+                                        <select name="role" id="role-input" class="form-control"> 
+                                        <option selected>Choose Role...</option>
+                                        <option value="1">admin</option>
+                                        <option value="2">employee</option>
+                                    </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 mb-8 mb-sm-0">
+
+                                        <button onclick="addUserOne()" class="btn btn-primary btn-user btn-block">
+                               Add
+                            </button>
+                                        <hr>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- End of Content Wrapper -->
+                </div>
+                <!-- End of Page Wrapper -->
+
+
+
+
+                <!-- Bootstrap core JavaScript-->
+                <script src="scripts/jquery/jquery.min.js"></script>
+                <script src="scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                <!-- Core plugin JavaScript-->
+                <script src="scripts/jquery-easing/jquery.easing.min.js"></script>
+
+                <!-- Custom scripts for all pages-->
+                <script src="scripts/sb-admin-2.min.js"></script>
+
+                <!-- Page level plugins -->
+                <script src="scripts/chart.js/Chart.min.js"></script>
+                <script src="scripts/http.js"></script>
+                <script src="scripts/users.js"></script>
+</body>
+
+</html>

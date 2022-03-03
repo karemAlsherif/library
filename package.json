@@ -63,6 +63,7 @@
     "build.ts"
   ],
   "dependencies": {
+    "@prisma/client": "3.10.0",
     "bcrypt": "^5.0.1",
     "command-line-args": "^5.2.1",
     "cookie-parser": "^1.4.6",
@@ -78,7 +79,7 @@
     "morgan": "^1.10.0",
     "randomstring": "^1.2.2",
     "sequelize": "^6.16.2",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

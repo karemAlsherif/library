@@ -1,13 +1,25 @@
-import Book from "../models/book-orm";
-import { UserNotFoundError } from '../shared/errors';
-
+import { Book, CreateBook } from "../models/book";
+import { UserNotFoundError } from "../shared/errors";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 /**
  * Get all books.
  *
  * @returns
  */
-function getAll(): Promise<Book[]> {
-  return Book.findAll();
+async function getAll(query: {
+  authorId?: number;
+  typeId?: number;
+  pubId?: number;
+}): Promise<Book[]> {
+  const data = await prisma.book.findMany({
+    where: { ...query },
+    include: { author: true, publisher: true, type: true },
+  });
+  const book = data.map((value, index, list) => {
+    return { ...value } as unknown as Book;
+  });
+  return book;
 }
 
 /**
@@ -16,9 +28,13 @@ function getAll(): Promise<Book[]> {
  * @param book
  * @returns
  */
-function addOne(book: Book): Promise<Book> {
+async function addOne(book: CreateBook): Promise<Book> {
   console.log(book);
-  return Book.create({... book });
+
+  const data = await prisma.book.create({
+    data: { ...book },
+  });
+  return data;
 }
 
 /**
@@ -27,12 +43,15 @@ function addOne(book: Book): Promise<Book> {
  * @param book
  * @returns
  */
-async function updateOne(book: Book): Promise<Book> {
-  const persists = await Book.findByPk(book.id);
+async function updateOne(book: CreateBook): Promise<Book> {
+  const persists = await prisma.book.findUnique({ where: { id: book.id } });
   if (!persists) {
     throw new UserNotFoundError();
   }
-  return await  persists.update({...book});
+  return await await prisma.book.update({
+    where: { id: book.id },
+    data: { ...book },
+  });
 }
 
 /**
@@ -42,11 +61,11 @@ async function updateOne(book: Book): Promise<Book> {
  * @returns
  */
 async function deleteOne(id: number): Promise<void> {
-  const persists = await Book.findByPk(id);
+  const persists = await prisma.book.findUnique({ where: { id } });
   if (!persists) {
     throw new UserNotFoundError();
   }
-  return await persists.destroy();
+  await prisma.book.delete({ where: { id } });
 }
 
 // Export default

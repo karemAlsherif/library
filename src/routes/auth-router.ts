@@ -34,15 +34,15 @@ router.post(p.login, async (req: Request, res: Response) => {
   // Check email and password present
   const { email, password } = req.body;
   if (!(email && password)) {
-    throw new ParamMissingError();
+    new ParamMissingError();
   }
   // Get jwt
-  const jwt = await authService.login(email, password);
+  const data = await authService.login(email, password);
   // Add jwt to cookie
   const { key, options } = cookieProps;
-  res.cookie(key, jwt, options);
+  res.cookie(key, data.jwt, options);
   // Return
-  return res.status(OK).end();
+  return res.status(OK).json({ role: data.role });
 });
 
 /**
