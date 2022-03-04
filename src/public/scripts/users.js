@@ -37,6 +37,9 @@ function getUserDisplayEle(user) {
 const logoutBtn = document.getElementById("logout-btn");
 logoutBtn.addEventListener("click", () => logoutUser(), false);
 
+const addBtn = document.getElementById("add-btn");
+addBtn.addEventListener("click", () => addUserOne(), false);
+
 function addUserOne() {
     var nameInput = document.getElementById("name-input");
     var emailInput = document.getElementById("email-input");
@@ -47,7 +50,7 @@ function addUserOne() {
             name: nameInput.value,
             email: emailInput.value,
             pwdHash: pwdlInput.value,
-            role: roleInput.value,
+            role: parseInt(roleInput.value),
         },
     };
     Http.Post("/api/users/add", data).then(() => {
