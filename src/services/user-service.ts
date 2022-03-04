@@ -1,6 +1,7 @@
 import { User } from "../models/user";
 import { UserNotFoundError } from "@shared/errors";
 import { PrismaClient } from "@prisma/client";
+
 const prisma = new PrismaClient();
 
 /**
